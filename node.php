@@ -1,6 +1,6 @@
 <?php
 
-class miniCar implements Car {
+class Elect implements Electronics {
   private $model; 
    
   public function setModel($name) { 
@@ -11,8 +11,8 @@ class miniCar implements Car {
   }
 }
 
-$car = new miniCar();
-$car -> setModel('Mercedes Benz');
+$elect = new Elect();
+$elect -> setModel('Electronics');
 
  
 ?>
