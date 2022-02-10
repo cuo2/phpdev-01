@@ -1,17 +1,27 @@
 <?php
 
-include 'node.php';
+include './NodeInterface.php';
+include './Node.php';
 
-interface Electronics { 
-    public function setModel($name);  
-    public function getModel();
-  }
-  
+$tree = (new \Node('Electronics'))
+    ->addChild(
+        (new \Node('Televisions'))
+            ->addChild(new \Node('Tube'))
+            ->addChild(new \Node('LCD'))
+            ->addChild(new \Node('Plasma'))
+        )
+    ->addChild(
+        (new \Node('Portable electronic'))
+            ->addChild((new \Node('MP3 players'))->addChild(new \Node('Flash')))
+            ->addChild(new \Node('CD players'))
+            ->addChild(new \Node('2 way radios'))
+        )    
+    ;
 ?>
-
-
 <html>
     <body>
-        <pre><?php echo $elect -> getModel(); ?></pre>
-    </body>
+        <h1><?php echo "Hello world!"; ?></h1>
+        <p>I'm <?php echo $_REQUEST['name'] ?? 'Noname'; ?></p>
+        <pre><?php echo $tree; ?></pre>
+    </body>    
 </html>
